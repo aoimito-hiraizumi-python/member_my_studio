@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>SignUp</h1>
+<form action="/member_login" method="post">
+    <input type="number" name="membership_number" placeholder="会員番号">
+    <input type="text" name="name" placeholder="ニックネーム">
+    <input type="password" name="password" placeholder="password">
+    <input type="date" name="birthday" id="">
+    <label for=""></label>
+    <select name="gender" id="">
+        <option value="man">男</option>
+        <option value="woman">女</option>
+        <option value="no_gender">どちらでも無い</option>
+    </select>
+    <p>来館しやすい曜日</p>
+    <select name="week" id="">
+        <option value="sunday">日曜日</option>
+        <option value="monday">月曜日</option>
+        <option value="tuesday">火曜日</option>
+        <option value="wednesday">水曜日</option>
+        <option value="thursday">木曜日</option>
+        <option value="friday">金曜日</option>
+        <option value="saturday">土曜日</option>
+    </select>
+    <p>来館しやすい時間帯</p>
+    <select name="time_zone" id="">
+        <option value="morning">9:30~12:00</option>
+        <option value="afternoon">12:00~16:00</option>
+        <option value="evening">16:00~19:00</option>
+        <option value="night">19:00~22:00</option>
+    </select>
+    <input type="submit" value="登録">
+</form>
+{% endblock %}
