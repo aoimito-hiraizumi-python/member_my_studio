@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>スタジオプログラム内容</h1>
+<p>説明文</p>
+<p>画像or動画</p>
+<p>強度⭐️難度⭐️</p>
+<h3>IRメッセージ</h3>
+<h3>コメント閲覧</h3>
+<form action="/user/member_comment" method="post">
+    <input type="submit" value="コメント記入">
+</form>
+<form action="/user/member_reserve" method="post">
+    <input type="submit" value="予約する">
+</form>
+<input type="button" value="お気に入りに追加">
+<form action="/user/member_studio_pick" method="post">
+    <input type="submit" value="戻る">
+</form>
+<form action="/user/member_index" method="post">
+    <input type="submit" value="Indexへ">
+</form>
+<a href="/user/member_comment">コメント記入へ</a>
+<a href="/user/member_reserve">予約画面へ</a>
+<a href="/user/member_studio_pick">戻る</a>
+<a href="/user/member_index">Indexへ</a>
+{% endblock %}

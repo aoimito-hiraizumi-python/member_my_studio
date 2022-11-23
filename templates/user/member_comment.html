@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>コメント記入</h1>
+<input type="textarea" name="comment" id="">
+<form action="/user/member_class" method="post">
+    <input type="submit" value="戻る">
+</form>
+<a href="/user/member_class">戻る</a>
+{% endblock %}

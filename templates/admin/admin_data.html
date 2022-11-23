@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>データ分析</h1>
+<form action="/admin/admin_reserved" method="post">
+    <input type="submit" value="予約状況検索">
+</form>
+<form action="/admin/admin_comments" method="post">
+    <input type="submit" value="コメント検索">
+</form>
+<form action="/admin/admin_favorites" method="post">
+    <input type="submit" value="お気に入り検索">
+</form>
+<form action="/admin/admin_index" method="post">
+    <input type="submit" value="戻る">
+</form>
+<a href="/admin/admin_reserved">予約状況検索</a>
+<a href="/admin/admin_comments">コメント検索</a>
+<a href="/admin/admin_favorites">お気に入り検索</a>
+<a href="/admin/admin_index">戻る</a>
+{% endblock %}

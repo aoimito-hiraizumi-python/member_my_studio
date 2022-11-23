@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>スタジオプログラム内容</h1>
+<form action="/user/guests" method="post">   
+    <input type="submit" value="戻る">
+</form>
+<form action="/user/user" method="post">   
+    <input type="submit" value="TOPへ">
+</form>
+<a href="/user/guests">戻る</a>
+<a href="/user/user">UserTop画面へ</a>
+{% endblock %}

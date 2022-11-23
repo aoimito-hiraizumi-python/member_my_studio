@@ -1,62 +1,47 @@
+import os
 from flask import Flask
 from flask import render_template
 from flask import redirect
+from flask import request
 
+from flask_login import LoginManager
+from flask_login import login_required
+
+from database import User
 
 app = Flask(__name__)
 
-@app.route("/")
-def user_welcome():
-    return render_template("user_welcome.html")
+from user import user_bp
+app.register_blueprint(user_bp)
 
-@app.route("/member_login", methods=["POST"])
-def member_login():
-    return render_template("member_login.html")
+from admin import admin_bp
+app.register_blueprint(admin_bp)
 
-@app.route("/member_signup", methods=["POST"])
-def member_signup():
-    return render_template("member_signup.html")
+from ir import ir_bp
+app.register_blueprint(ir_bp)
 
-@app.route("/member_index", methods=["POST"])
-def member_index():
-    return render_template("member_index.html")
+app.config["SECRET_KEY"] = os.urandom(24)
+login_manager = LoginManager()
+login_manager.init_app(app)
 
-@app.route("/member_studio_pick", methods=["POST"])
-def member_studio_pick():
-    return render_template("member_studio_pick.html")
+@login_manager.user_loader
+def load_user(id):
+    return User.get(id=int(id)) 
 
-@app.route("/member_class", methods=["POST"])
-def member_class():
-    return render_template("member_class.html")
+@login_manager.unauthorized_handler
+def unauthorized():
+    return redirect("/login")
 
-@app.route("/member_comment", methods=["POST"])
-def member_comment():
-    return render_template("member_comment.html")
 
-@app.route("/member_reserve", methods=["POST"])
-def member_reserve():
-    return render_template("member_reserve.html")
 
-@app.route("/reserved", methods=["POST"])
-def reserved():
-    return render_template("reserved.html")
+# 会員・ゲスト画面
 
-@app.route("/member_my_page", methods=["POST"])
-def member_my_page():
-    return render_template("member_my_page.html")
 
-@app.route("/logout", methods=["POST"])
-def logout():
-    return redirect("/")
 
-@app.route("/guests", methods=["POST"])
-def guests():
-    return render_template("guests.html")
+# 管理画面(クラブ側)
 
-@app.route("/guests_class", methods=["POST"])
-def guests_class():
-    return render_template("guests_class.html")
 
+# IR画面
 
 
 

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Index</h1>
+<form action="/admin/admin_schedule" method="post">
+    <input type="submit" value="スケジュール登録">
+</form>
+<form action="/admin/admin_program" method="post">
+    <input type="submit" value="プログラム登録">
+</form>
+<form action="/admin/admin_ir" method="post">
+    <input type="submit" value="IR登録">
+</form>
+<form action="/admin/admin_data" method="post">
+    <input type="submit" value="データ分析">
+</form>
+<form action="/admin/admin_mypage" method="post">
+    <input type="submit" value="マイページ">
+</form>
+<form action="/admin/admin_logout" method="post">
+    <input type="submit" value="ログアウト">
+</form>
+<form action="/admin/admin" method="post">
+    <input type="submit" value="戻る">
+</form>
+<a href="/admin/admin_schedule">スケジュール登録へ</a>
+<a href="/admin/admin_program">プログラム登録へ</a>
+<a href="/admin/admin_ir"> IR登録へ</a>
+<a href="/admin/admin_data">データ分析へ</a>
+<a href="/admin/admin_mypage">adminMypageへ</a>
+<a href="/admin/admin">logout->adminTopへ</a>
+<a href="/admin/admin_login">戻る</a>
+{% endblock %}

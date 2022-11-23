@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Index</h1>
+<form action="/user/member_studio_pick" method="post">
+    <input type="submit" value="スタジオ選択">
+</form>
+<form action="/user/member_reserved" method="post">
+    <input type="submit" value="予約したプログラム一覧">
+</form>
+<form action="/user/member_walk_up" method="post">
+    <input type="submit" value="飛び込み予約">
+</form>
+<form action="/user/member_mypage" method="post">
+    <input type="submit" value="マイページ">
+</form>
+<form action="/user/member_logout" method="post">
+    <input type="submit" value="ログアウト">
+</form>
+<a href="/user/member_studio_pick">メンバー->スタジオ選択へ</a>
+<a href="/user/member_reserved">予約済みプログラム一覧へ</a>
+<a href="/user/member_walk_up">飛び込み予約</a>
+<a href="/user/member_mypage">メンバー->マイページへ</a>
+<a href="/user/user">ログアウト->UserTop画面へ</a>
+{% endblock %}
