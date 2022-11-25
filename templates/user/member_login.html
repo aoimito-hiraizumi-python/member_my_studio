@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Login</h1>
+<form action="/user/member_index" method="post">
+    <input type="text" name="name" placeholder="ニックネーム">
+    <input type="password" name="password" placeholder="パスワード">
+    <input type="submit" value="ログイン">
+</form>
+<form action="/user/user">
+    <input type="submit" value="戻る">
+</form>
+<a href="/user/member_index">Index</a>
+<a href="/user/user">戻る</a>
+{% endblock %}code

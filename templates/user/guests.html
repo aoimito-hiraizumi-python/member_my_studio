@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>スタジオ選択</h1>
+<form action="/user/guests_class">
+    <p>スタジオ一覧</p>
+    <input type="submit" value="選択">
+</form>
+<form action="/user/user">
+    <input type="submit" value="戻る">
+</form>
+<a href="/user/guests_class">選択したスタジオプログラムへ</a>
+<a href="/user/user">戻る</a>
+{% endblock %}

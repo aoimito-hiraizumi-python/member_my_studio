@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>各クラス登録</h1>
+<p>プログラム名</p>
+<p>プログラム説明</p>
+<p>プログラム時間(分)</p>
+<p>プログラム画像or動画</p>
+<p>プログラム強度・難度⭐️</p>
+<p>担当IR</p>
+<p>担当IRメッセージ</p>
+<p>参加者のコメント</p>
+<form action="/admin/admin_index" method="post">
+    <input type="submit" value="戻る">
+</form>
+<a href="/admin/admin_index">戻る</a>
+{% endblock %}

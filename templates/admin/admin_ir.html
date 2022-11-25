@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>IR登録</h1>
+<form action="/admin/admin_ir" method="post">
+    <p>IR名前</p>
+    <input type="text" name="name" placeholder="IR名前">
+    <p>担当プログラム1</p>
+    <input type="text" name="program1" placeholder="担当プログラム1">
+    <p>担当プログラム1の価格</p>
+    <input type="number" name="fee1" placeholder="program1の価格">
+    <p>担当プログラム2</p>
+    <input type="text" name="program2" placeholder="担当プログラム2">
+    <p>担当プログラム2の価格</p>
+    <input type="number" name="fee2" placeholder="program2の価格">
+    <p>担当プログラム3</p>
+    <input type="text" name="program3" placeholder="担当プログラム3">
+    <p>担当プログラム3の価格</p>
+    <input type="number" name="fee3" placeholder="program3の価格">
+    <p>IRのemail</p>
+    <input type="email" name="email" placeholder="email">
+    <br>
+    <input type="submit" value="登録">
+</form>
+<form action="/admin/admin_index" method="post">
+    <input type="submit" value="戻る">
+</form>
+<a href="/admin/admin_index">戻る</a>
+{% endblock %}

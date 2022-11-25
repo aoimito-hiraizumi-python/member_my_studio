@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>マイページ</h1>
+<p>{{ user.membership_number }}</p>
+<form action="/user/member_index" method="post">
+    <input type="submit" value="戻る">
+</form>
+<a href="/user/member_index">戻る</a>
+{% endblock %}

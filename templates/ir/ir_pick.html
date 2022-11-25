@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>担当プログラム検索</h1>
+
+<form action="/ir/ir_message" method="post">
+    <input type="submit" value="メッセージ記入">
+</form>
+<form action="/ir/ir_comments" method="post">
+    <input type="submit" value="コメント閲覧">
+</form>
+<form action="/ir/ir_index" method="post">
+    <input type="submit" value="戻る">
+</form>
+<a href="/ir/ir_message">メッセージ記入へ</a>
+<a href="/ir/ir_comments">irコメント記入へ</a>
+<a href="/ir/ir_index">戻る</a>
+    
+{% endblock %}

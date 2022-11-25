@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>SignUp</h1>
+<form action="/user/member_signup" method="post">
+    <div>
+        <p>会員番号</p>
+        <input type="number" name="membership_number" placeholder="会員番号">
+    </div>
+    <div>
+        <p>ニックネーム</p>
+        <input type="text" name="name" placeholder="ニックネーム">
+    </div>
+    <div>
+        <p>パスワード</p>
+        <input type="password" name="password" placeholder="password">
+    </div>
+    <div>
+        <p>生年月日</p>
+        <input type="date" name="birthday" id="">
+    </div>
+    <div>
+        <p>性別</p>
+        <div>
+            <label for="checkbox1">男</label>
+            <input type="checkbox" name="gender" id="" value="男">
+        </div>
+        <div>
+            <label for="checkbox2">女</label>
+            <input type="checkbox" name="gender" id="" value="女">
+        </div>
+        <div>
+            <label for="checkbox3">どちらでもない</label>
+            <input type="checkbox" name="gender" id="" value="どちらでもない">
+        </div>
+    </div>
+    <div>
+        <p>来館しやすい曜日</p>
+        <select name="week1" id="">
+            <option value="日曜日">日曜日</option>
+            <option value="月曜日">月曜日</option>
+            <option value="火曜日">火曜日</option>
+            <option value="水曜日">水曜日</option>
+            <option value="木曜日">木曜日</option>
+            <option value="金曜日">金曜日</option>
+            <option value="土曜日">土曜日</option>
+        </select>
+        <select name="week2" id="">
+            <option value="日曜日">日曜日</option>
+            <option value="月曜日">月曜日</option>
+            <option value="火曜日">火曜日</option>
+            <option value="水曜日">水曜日</option>
+            <option value="木曜日">木曜日</option>
+            <option value="金曜日">金曜日</option>
+            <option value="土曜日">土曜日</option>
+        </select>
+        <select name="week3" id="">
+            <option value="日曜日">日曜日</option>
+            <option value="月曜日">月曜日</option>
+            <option value="火曜日">火曜日</option>
+            <option value="水曜日">水曜日</option>
+            <option value="木曜日">木曜日</option>
+            <option value="金曜日">金曜日</option>
+            <option value="土曜日">土曜日</option>
+        </select>
+        
+    </div>
+    <div>
+        <p>来館しやすい時間帯</p>
+        <select name="time_zone1" id="">
+            <option value="9:30~12:00">9:30~12:00</option>
+            <option value="12:00~16:00">12:00~16:00</option>
+            <option value="16:00~19:00">16:00~19:00</option>
+            <option value="19:00~22:00">19:00~22:00</option>
+        </select>
+        <select name="time_zone2" id="">
+            <option value="9:30~12:00">9:30~12:00</option>
+            <option value="12:00~16:00">12:00~16:00</option>
+            <option value="16:00~19:00">16:00~19:00</option>
+            <option value="19:00~22:00">19:00~22:00</option>
+        </select>
+    <input type="submit" value="登録">
+</form>
+<form action="/user/user">
+    <input type="submit" value="戻る">
+</form>
+<a href="/user/member_login">登録->ログインへ</a>
+<a href="/user/user">戻る</a>
+{% endblock %}

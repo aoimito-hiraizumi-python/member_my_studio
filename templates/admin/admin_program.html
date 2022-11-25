@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>プログラム登録</h1>
+<form action="/admin/admin_program" method="post">
+    <label for="name">プログラム名</label>
+    <br>
+    <input type="text" name="name" id="name" placeholder="プログラム名">
+    <br>
+    <label for="content">内容</label>
+    <br>
+    <textarea name="content" id="content" cols="30" rows="10">プログラム内容を記入</textarea>
+    <br>
+    <p>強度</p>
+    <input type="radio" name="strength" id="strength1" value="1">
+    <label for="strength1">1</label>
+    <input type="radio" name="strength" id="strength2" value="2">
+    <label for="strength2">2</label>
+    <input type="radio" name="strength" id="strength3" value="3">
+    <label for="strength">3</label>
+    <br>
+    <p>難度</p>
+    <input type="radio" name="difficulty" id="difficulty1" value="1">
+    <label for="difficulty1">1</label>
+    <input type="radio" name="difficulty" id="difficulty2" value="2">
+    <label for="difficulty2">2</label>
+    <input type="radio" name="difficulty" id="difficulty3" value="3">
+    <label for="difficulty">3</label>
+    <br>
+    <p>時間(分)</p>
+    <input type="radio" name="minutes" id="minutes30" value="30">
+    <label for="minutes30">30</label>
+    <input type="radio" name="minutes" id="minutes45" value="45">
+    <label for="minutes45">45</label>
+    <input type="radio" name="minutes" id="minutes60" value="60">
+    <label for="minutes">60</label>
+    <br>
+    <p>定員</p>
+    <input type="radio" name="capacity" id="capacity30" value="30">
+    <label for="capacity30">30</label>
+    <input type="radio" name="capacity" id="capacity50" value="50">
+    <label for="capacity50">50</label>
+    <br>
+    <!-- <p>画像or動画</p>
+    <input type="image" src="" alt="スタジオプログラムの画像"> -->
+    <input type="submit" value="登録">
+
+      
+</form>
+<form action="/admin/admin_index" method="post">
+    <input type="submit" value="戻る">
+</form>
+<a href="/admin/admin_index">戻る</a>
+{% endblock %}

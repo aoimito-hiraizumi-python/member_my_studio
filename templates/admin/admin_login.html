@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Login</h1>
+<form action="/admin/admin_index" method="post">
+    <input type="text" name="name" placeholder="施設名">
+    <input type="password" name="password" placeholder="パスワード">
+    <input type="submit" value="ログイン">
+</form>
+<form action="/admin/admin">
+    <input type="submit" value="戻る">
+</form>
+<a href="/admin/admin_index">adminIndexへ</a>
+<a href="/admin/admin">戻る</a>
+{% endblock %}
