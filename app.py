@@ -7,6 +7,7 @@ from flask import request
 from flask_login import LoginManager
 from flask_login import login_required
 
+
 from database import User
 
 app = Flask(__name__)
@@ -30,7 +31,7 @@ def load_user(id):
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    return redirect("/login")
+    return redirect("/user/user")
 
 
 

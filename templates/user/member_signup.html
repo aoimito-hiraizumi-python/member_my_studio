@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>SignUp</h1>
-<form action="/user/member_login" method="post">
+<form action="/user/member_signup" method="post">
     <div>
         <p>会員番号</p>
         <input type="number" name="membership_number" placeholder="会員番号">
@@ -34,71 +34,54 @@
             <input type="checkbox" name="gender" id="" value="どちらでもない">
         </div>
     </div>
-    <!-- <select name="gender">
-        <option value="man">男</option>
-        <option value="woman">女</option>
-        <option value="no_gender">どちらでも無い</option>
-    </select> -->
     <div>
         <p>来館しやすい曜日</p>
-        <div>
-            <label for="checkbox1">日曜日</label>
-            <input type="checkbox" name="week[]" id="" value="日曜日">
-        </div>
-        <div>
-            <label for="checkbox2">月曜日</label>
-            <input type="checkbox" name="week[]" id="" value="月曜日">
-        </div>
-        <div>
-            <label for="checkbox3">火曜日</label>
-            <input type="checkbox" name="week[]" id="" value="火曜日">
-        </div>
-        <div>
-            <label for="checkbox4">水曜日</label>
-            <input type="checkbox" name="week[]" id="" value="水曜日">
-        </div>
-        <div>
-            <label for="checkbox5">木曜日</label>
-            <input type="checkbox" name="week[]" id="" value="木曜日">
-        </div>
-        <div>
-            <label for="checkbox6">金曜日</label>
-            <input type="checkbox" name="week[]" id="" value="金曜日">
-        </div>
-        <div>
-            <label for="checkbox7">土曜日</label>
-            <input type="checkbox" name="week[]" id="" value="土曜日">
-        </div>
+        <select name="week1" id="">
+            <option value="日曜日">日曜日</option>
+            <option value="月曜日">月曜日</option>
+            <option value="火曜日">火曜日</option>
+            <option value="水曜日">水曜日</option>
+            <option value="木曜日">木曜日</option>
+            <option value="金曜日">金曜日</option>
+            <option value="土曜日">土曜日</option>
+        </select>
+        <select name="week2" id="">
+            <option value="日曜日">日曜日</option>
+            <option value="月曜日">月曜日</option>
+            <option value="火曜日">火曜日</option>
+            <option value="水曜日">水曜日</option>
+            <option value="木曜日">木曜日</option>
+            <option value="金曜日">金曜日</option>
+            <option value="土曜日">土曜日</option>
+        </select>
+        <select name="week3" id="">
+            <option value="日曜日">日曜日</option>
+            <option value="月曜日">月曜日</option>
+            <option value="火曜日">火曜日</option>
+            <option value="水曜日">水曜日</option>
+            <option value="木曜日">木曜日</option>
+            <option value="金曜日">金曜日</option>
+            <option value="土曜日">土曜日</option>
+        </select>
+        
     </div>
     <div>
         <p>来館しやすい時間帯</p>
-        <div>
-            <label for="checkbox1">9:30~12:00</label>
-            <input type="checkbox" name="time_zone[]" id="" value="9:30~12:00">
-        </div>
-        <div>
-            <label for="checkbox2">12:00~16:00</label>
-            <input type="checkbox" name="time_zone[]" id="" value="12:00~16:00">
-        </div>
-        <div>
-            <label for="checkbox3">16:00~19:00</label>
-            <input type="checkbox" name="time_zone[]" id="" value="16:00~19:00">
-        </div>
-        <div>
-            <label for="checkbox4">19:00~22:00</label>
-            <input type="checkbox" name="time_zone[]" id="" value="19:00~22:00">
-        </div>
-    </div>
-    
-    <!-- <select name="time_zone" multiple>
-        <option value="morning">9:30~12:00</option>
-        <option value="afternoon">12:00~16:00</option>
-        <option value="evening">16:00~19:00</option>
-        <option value="night">19:00~22:00</option>
-    </select> -->
+        <select name="time_zone1" id="">
+            <option value="9:30~12:00">9:30~12:00</option>
+            <option value="12:00~16:00">12:00~16:00</option>
+            <option value="16:00~19:00">16:00~19:00</option>
+            <option value="19:00~22:00">19:00~22:00</option>
+        </select>
+        <select name="time_zone2" id="">
+            <option value="9:30~12:00">9:30~12:00</option>
+            <option value="12:00~16:00">12:00~16:00</option>
+            <option value="16:00~19:00">16:00~19:00</option>
+            <option value="19:00~22:00">19:00~22:00</option>
+        </select>
     <input type="submit" value="登録">
 </form>
-<form action="/user/user" method="post">
+<form action="/user/user">
     <input type="submit" value="戻る">
 </form>
 <a href="/user/member_login">登録->ログインへ</a>

@@ -2,6 +2,47 @@
 
 {% block content %}
 <h1>スケジュール登録</h1>
+<form action="/admin/admin_schedule" method="post">
+    <!-- <label for="year">年</label>
+    <input type="number" name="year" id="year">
+    <br>
+    <label for="month">月</label>
+    <select name="month" id="month">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select> -->
+    <label for="week">曜日</label>
+    <select name="week" id="week">
+        <option value="月">月曜日</option>
+        <option value="火">火曜日</option>
+        <option value="水">水曜日</option>
+        <option value="木">木曜日</option>
+        <option value="金">金曜日</option>
+        <option value="土">土曜日</option>
+        <option value="日">日曜日</option>
+    </select>
+    <br>
+    <label for="time">開始時間</label>
+    <input type="time" name="time" id="time">
+    <br>
+    <label for="program">プログラム名</label>
+    <input type="text" name="program" id="program">
+    <br>
+    <label for="ir">担当IR</label>
+    <input type="text" name="ir" id="ir">
+    <br>
+    <input type="submit" value="登録">
+</form>
 <form action="/admin/admin_index" method="post">
     <input type="submit" value="戻る">
 </form>
