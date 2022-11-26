@@ -12,6 +12,7 @@ if not db.connect():
     exit()
 print("接続OK")
 
+
 class User(UserMixin, Model):
     id = IntegerField(primary_key=True)
     membership_number = IntegerField()
@@ -24,22 +25,28 @@ class User(UserMixin, Model):
     week3 = CharField()
     time_zone1 = CharField()
     time_zone2 = CharField()
+
     class Meta:
         database = db
         table_name = "User"
 
-db.create_tables([User])   
+
+db.create_tables([User])
+
 
 class Admin(UserMixin, Model):
     id = IntegerField(primary_key=True)
     name = CharField()
     password = IntegerField()
     email = CharField()
+
     class Meta:
         database = db
         table_name = "Admin"
 
+
 db.create_tables([Admin])
+
 
 class Program(UserMixin, Model):
     id = IntegerField(primary_key=True)
@@ -49,11 +56,14 @@ class Program(UserMixin, Model):
     difficulty = IntegerField()
     minutes = IntegerField()
     capacity = IntegerField()
+
     class Meta:
         database = db
         table_name = "Program"
 
+
 db.create_tables([Program])
+
 
 class Schedule(UserMixin, Model):
     id = IntegerField(primary_key=True)
@@ -63,10 +73,14 @@ class Schedule(UserMixin, Model):
     time = CharField()
     program = CharField()
     ir = CharField()
+
     class Meta:
         database = db
         table_name = "Schedule"
+
+
 db.create_tables([Schedule])
+
 
 class Ir_register(UserMixin, Model):
     id = IntegerField(primary_key=True)
@@ -78,20 +92,24 @@ class Ir_register(UserMixin, Model):
     program3 = CharField()
     fee3 = IntegerField()
     email = CharField()
+
     class Meta:
         database = db
         table_name = "Ir_register"
 
+
 db.create_tables([Ir_register])
+
 
 class Ir(UserMixin, Model):
     id = IntegerField(primary_key=True)
     name = CharField()
     password = IntegerField()
     email = CharField()
+
     class Meta:
         database = db
         table_name = "Ir"
+
+
 db.create_tables([Ir])
-
-

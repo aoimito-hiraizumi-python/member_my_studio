@@ -3,8 +3,10 @@
 {% block content %}
 <h1>スタジオプログラム内容</h1>
 <p>説明文</p>
+<p>{{content}}</p>
 <p><img src="" alt="画像or動画"></p>
-<p>強度⭐️難度⭐️</p>
+<p>強度<span>{{strength}}</span></p>
+<p>難度<span>{{difficulty}}</span></p>
 <h3>IRメッセージ</h3>
 <h3>コメント閲覧</h3>
 <form action="/user/member_comment" method="post">

@@ -4,21 +4,38 @@
 <h1>IR登録</h1>
 <form action="/admin/admin_ir" method="post">
     <p>IR名前</p>
-    <input type="text" name="name" placeholder="IR名前">
+    <input type="text" name="name" placeholder="IR名前" required>
     <p>担当プログラム1</p>
-    <input type="text" name="program1" placeholder="担当プログラム1">
+    <select name="program1" id="program">
+        {% for program in programs %}
+            <option value="{{ program.name }}">{{ program.name }}</option>
+        {% endfor %}
+    </select>
+    <!-- <input type="text" name="program1" placeholder="担当プログラム1" required> -->
     <p>担当プログラム1の価格</p>
-    <input type="number" name="fee1" placeholder="program1の価格">
+    <input type="number" name="fee1" placeholder="program1の価格" required>
     <p>担当プログラム2</p>
-    <input type="text" name="program2" placeholder="担当プログラム2">
+    <select name="program2" id="program">
+        <option value="program2"></option>
+        {% for program in programs %}
+            <option value="{{ program.name }}">{{ program.name }}</option>
+        {% endfor %}
+    </select>
+    <!-- <input type="text" name="program2" placeholder="担当プログラム2"> -->
     <p>担当プログラム2の価格</p>
     <input type="number" name="fee2" placeholder="program2の価格">
     <p>担当プログラム3</p>
-    <input type="text" name="program3" placeholder="担当プログラム3">
+    <select name="program3" id="program">
+        <option value="program3"></option>
+        {% for program in programs %}
+            <option value="{{ program.name }}">{{ program.name }}</option>
+        {% endfor %}
+    </select>
+    <!-- <input type="text" name="program3" placeholder="担当プログラム3"> -->
     <p>担当プログラム3の価格</p>
     <input type="number" name="fee3" placeholder="program3の価格">
     <p>IRのemail</p>
-    <input type="email" name="email" placeholder="email">
+    <input type="email" name="email" placeholder="email" required>
     <br>
     <input type="submit" value="登録">
 </form>
