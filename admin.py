@@ -87,7 +87,9 @@ def admin_program_register():
 
 @admin_bp.route("/admin_schedule")
 def admin_schedule():
-    return render_template("admin/admin_schedule.html")
+    programs = Program.select()
+    irs = Ir_register.select()
+    return render_template("admin/admin_schedule.html", programs=programs, irs=irs)
 
 @admin_bp.route("/admin_schedule", methods=["POST"])
 def admin_schedule_register():
@@ -113,7 +115,8 @@ def admin_class():
     
 @admin_bp.route("/admin_ir")
 def admin_ir():
-    return render_template("admin/admin_ir.html")
+    programs = Program.select()
+    return render_template("admin/admin_ir.html", programs=programs)
 
 @admin_bp.route("/admin_ir", methods=["POST"])
 def admin_ir_register():

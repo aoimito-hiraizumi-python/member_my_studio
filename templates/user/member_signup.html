@@ -5,19 +5,19 @@
 <form action="/user/member_signup" method="post">
     <div>
         <p>会員番号</p>
-        <input type="number" name="membership_number" placeholder="会員番号">
+        <input type="number" name="membership_number" placeholder="会員番号" required>
     </div>
     <div>
         <p>ニックネーム</p>
-        <input type="text" name="name" placeholder="ニックネーム">
+        <input type="text" name="name" placeholder="ニックネーム" required>
     </div>
     <div>
         <p>パスワード</p>
-        <input type="password" name="password" placeholder="password">
+        <input type="password" name="password" placeholder="password" required>
     </div>
     <div>
         <p>生年月日</p>
-        <input type="date" name="birthday" id="">
+        <input type="date" name="birthday" id="" required>
     </div>
     <div>
         <p>性別</p>
@@ -37,6 +37,7 @@
     <div>
         <p>来館しやすい曜日</p>
         <select name="week1" id="">
+            <option value="">選択してください</option>
             <option value="日曜日">日曜日</option>
             <option value="月曜日">月曜日</option>
             <option value="火曜日">火曜日</option>
@@ -46,6 +47,7 @@
             <option value="土曜日">土曜日</option>
         </select>
         <select name="week2" id="">
+            <option value="">選択してください</option>
             <option value="日曜日">日曜日</option>
             <option value="月曜日">月曜日</option>
             <option value="火曜日">火曜日</option>
@@ -55,6 +57,7 @@
             <option value="土曜日">土曜日</option>
         </select>
         <select name="week3" id="">
+            <option value="">選択してください</option>
             <option value="日曜日">日曜日</option>
             <option value="月曜日">月曜日</option>
             <option value="火曜日">火曜日</option>
@@ -68,12 +71,14 @@
     <div>
         <p>来館しやすい時間帯</p>
         <select name="time_zone1" id="">
+            <option value="">選択してください</option>
             <option value="9:30~12:00">9:30~12:00</option>
             <option value="12:00~16:00">12:00~16:00</option>
             <option value="16:00~19:00">16:00~19:00</option>
             <option value="19:00~22:00">19:00~22:00</option>
         </select>
         <select name="time_zone2" id="">
+            <option value="">選択してください</option>
             <option value="9:30~12:00">9:30~12:00</option>
             <option value="12:00~16:00">12:00~16:00</option>
             <option value="16:00~19:00">16:00~19:00</option>

@@ -20,7 +20,8 @@
         <option value="10">10</option>
         <option value="11">11</option>
         <option value="12">12</option>
-    </select> -->
+    </select>
+    <br> -->
     <label for="week">曜日</label>
     <select name="week" id="week">
         <option value="月">月曜日</option>
@@ -32,14 +33,24 @@
         <option value="日">日曜日</option>
     </select>
     <br>
-    <label for="time">開始時間</label>
-    <input type="time" name="time" id="time">
+    <label for="time">時間</label>
+    <input type="text" name="time" id="time">
     <br>
+    <!-- <p>プログラム</p> -->
     <label for="program">プログラム名</label>
-    <input type="text" name="program" id="program">
+    <select name="text" id="program">
+        {% for program in programs %}
+            <option value="{{ program.name }}">{{ program.name }}</option>
+        {% endfor %}
+    </select>
     <br>
     <label for="ir">担当IR</label>
-    <input type="text" name="ir" id="ir">
+    <select name="ir" id="ir">
+        {% for ir in irs %}
+            <option value="{{ ir.name }}">{{ ir.name }}</option>
+        {% endfor %}
+    </select>
+    <!-- <input type="text" name="ir" id="ir"> -->
     <br>
     <input type="submit" value="登録">
 </form>
