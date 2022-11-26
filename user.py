@@ -15,11 +15,13 @@ from database import User
 from database import Schedule
 from database import Program
 
+from PIL import Image
+
 
 from werkzeug.security import generate_password_hash  # 暗号化
 from werkzeug.security import check_password_hash  # パスワードに戻す
 
-user_bp = Blueprint("user", __name__, url_prefix="/user")
+user_bp = Blueprint("user", __name__, url_prefix="/user", static_folder="images/")
 
 
 @user_bp.route("/user")
@@ -90,12 +92,25 @@ def member_studio_pick():
 
 @user_bp.route("/member_class", methods=["POST"])
 def member_class():
+    schedule = Schedule.select()
     program = request.form["program"]
     detail = Program.get(name=program)
+    name = detail.name
     content = detail.content
+    image = detail.images
+    img = Image.open(image)
+    img_resize = img.resize((256, 256))
     strength = detail.strength
     difficulty = detail.difficulty
-    return render_template("/user/member_class.html", content=content, strength=strength, difficulty=difficulty)
+    return render_template(
+        "/user/member_class.html",
+        schedule=schedule,
+        name=name,
+        content=content,
+        strength=strength,
+        difficulty=difficulty,
+        img_resize=img,
+    )
 
 
 @user_bp.route("/member_comment")

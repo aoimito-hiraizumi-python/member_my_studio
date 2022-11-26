@@ -56,6 +56,7 @@ class Program(UserMixin, Model):
     difficulty = IntegerField()
     minutes = IntegerField()
     capacity = IntegerField()
+    images = CharField()
 
     class Meta:
         database = db
