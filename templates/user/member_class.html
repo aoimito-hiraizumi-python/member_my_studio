@@ -3,9 +3,27 @@
 {% block content %}
 <div class="d-flex justify-content-center">
     <div class="card" style="width: 40rem;">
-    <img src="{{img_resize}}" class="card-img-top" alt="画像or動画">
+        <img src="../{{img_resize}}" class="card-img-top" alt="画像or動画">
+        <div class="card-body">
+            <h3 class="card-title">{{name}}</h3>
+            <p class="card-text">{{content}}</p>
+            <p><span>強度</span><span>{{strength}}</span><span> 難度</span><span>{{difficulty}}</span></p>
+            <p class="card-title">担当：{{schedule[0].ir}}</p>
+            <p>IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。</p>
+            <p>参加者の声</p>
+            <p>すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。</p>
+            <h4 href="#" class="btn btn-primary">コメント記入</h4>
+            <h4 href="#" class="btn btn-primary">予約する</h4>
+            <h4 href="#" class="btn btn-primary">お気に入りに追加</h4>
+        </div>
+    </div>
+</div>
+<div class="d-flex flex-row">
+    <div>
+        <img src="../{{img_resize}}" class="img-thumbnail" alt="...">
+    </div>
     <div class="card-body">
-        <h3 class="card-title">{{name}}</h3>
+        <h5 class="card-title">{{name}}</h5>
         <p class="card-text">{{content}}</p>
         <p><span>強度</span><span>{{strength}}</span><span> 難度</span><span>{{difficulty}}</span></p>
         <p class="card-title">担当：{{schedule[0].ir}}</p>
@@ -14,26 +32,8 @@
         <p>すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。</p>
         <h4 href="#" class="btn btn-primary">コメント記入</h4>
         <h4 href="#" class="btn btn-primary">予約する</h4>
-        <h4 href="#" class="btn btn-primary">お気に入りに追加</h4>   
+        <h4 href="#" class="btn btn-primary">お気に入りに追加</h4>
     </div>
-    </div>
-</div>
-<div class="d-flex flex-row">
-    <div>
-        <img src="{{img_resize}}" class="img-thumbnail" alt="...">
-    </div>
-    <div class="card-body">
-    <h5 class="card-title">{{name}}</h5>
-    <p class="card-text">{{content}}</p>
-    <p><span>強度</span><span>{{strength}}</span><span> 難度</span><span>{{difficulty}}</span></p>
-    <p class="card-title">担当：{{schedule[0].ir}}</p>
-    <p>IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。IRからのメッセージ。</p>
-    <p>参加者の声</p>
-    <p>すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。すごく良いです。</p>
-    <h4 href="#" class="btn btn-primary">コメント記入</h4>
-    <h4 href="#" class="btn btn-primary">予約する</h4>
-    <h4 href="#" class="btn btn-primary">お気に入りに追加</h4>
-  </div>
 
 </div>
 <h1>{{name}}</h1>

@@ -78,8 +78,8 @@ def member_login_post():
     return redirect("/user/member_login")
 
 
-@user_bp.route("/member_index", methods=["POST"])
-# @login_required
+@user_bp.route("/member_index")
+@login_required
 def member_index():
     return render_template("/user/member_index.html")
 
@@ -87,6 +87,7 @@ def member_index():
 @user_bp.route("/member_studio_pick")
 def member_studio_pick():
     schedule = Schedule.select()
+    print(schedule)
     return render_template("/user/member_studio_pick.html", schedule=schedule)
 
 
@@ -94,7 +95,12 @@ def member_studio_pick():
 def member_class():
     schedule = Schedule.select()
     program = request.form["program"]
+    print("program")
+    print(program)
     detail = Program.get(name=program)
+    print("program")
+    print(program)
+    print(detail)
     name = detail.name
     content = detail.content
     image = detail.images
@@ -109,7 +115,7 @@ def member_class():
         content=content,
         strength=strength,
         difficulty=difficulty,
-        img_resize=img,
+        img_resize=image,
     )
 
 

@@ -6,20 +6,23 @@
     <p>スタジオ一覧</p>
     <input type="submit" value="選択">
 </form> -->
-<div class="schedule d-flex flex-row">
+
+<div class="d-flex justify-content-center">
     <div class="week text-center">
         <div class="card" style="width: 14rem;">
             <div class="card-body">
                 <h5 class="card-title">Mon</h5>
             </div>
-        </div>
+        
+        {% for s in schedule %}
+        {% if s.week == "月曜日" %}
         <div class="card" style="width: 14rem;">
             <div class="card-body">
-                <h5 class="card-title">{{schedule[0].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[0].ir}}</h6>
-                <p class="card-text">{{schedule[0].time}}</p>
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
                 <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[0].program}}>
+                    <input type="hidden" name="program" value="{{s.program}}">
                     <!-- schedule[0]のヨガの行を取ってきている -->
                     <input type="submit" value="説明を見る">
                 </form>
@@ -27,32 +30,8 @@
                 <a href="#" class="card-link">参加する</a>
             </div>
         </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[1].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[1].ir}}</h6>
-                <p class="card-text">{{schedule[1].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[1].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[2].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[2].ir}}</h6>
-                <p class="card-text">{{schedule[2].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[2].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
+        {% endif %}
+        {% endfor %}
     </div>
     <div class="week text-center">
         <div class="card" style="width: 14rem;">
@@ -60,158 +39,68 @@
                 <h5 class="card-title">Tue</h5>
             </div>
         </div>
+        {% for s in schedule %}
+        {% if s.week == "火曜日" %}
         <div class="card" style="width: 14rem;">
             <div class="card-body">
-                <h5 class="card-title">{{schedule[3].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[3].ir}}</h6>
-                <p class="card-text">{{schedule[3].time}}</p>
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
                 <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[3].program}}>
+                    <input type="hidden" name="program" value="{{s.program}}">
                     <input type="submit" value="説明を見る">
                 </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
                 <a href="#" class="card-link">参加する</a>
             </div>
         </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[4].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[4].ir}}</h6>
-                <p class="card-text">{{schedule[4].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[4].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[5].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[5].ir}}</h6>
-                <p class="card-text">{{schedule[5].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[5].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
+        {% endif %}
+        {% endfor %}
     </div>
     <div class="week text-center">
         <div class="card" style="width: 14rem;">
             <div class="card-body">
                 <h5 class="card-title">Wed</h5>
             </div>
-        </div>
+        </div> 
+        {% for s in schedule %}
+        {% if s.week == "水曜日" %}
         <div class="card" style="width: 14rem;">
             <div class="card-body">
-                <h5 class="card-title">{{schedule[6].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[6].ir}}</h6>
-                <p class="card-text">{{schedule[6].time}}</p>
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
                 <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[6].program}}>
+                    <input type="hidden" name="program" value="{{s.program}}">
                     <input type="submit" value="説明を見る">
                 </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
                 <a href="#" class="card-link">参加する</a>
             </div>
         </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[7].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[7].ir}}</h6>
-                <p class="card-text">{{schedule[7].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[7].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
+        {% endif %}
+        {% endfor %}
     </div>
-    <!-- <div class="week text-center">
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">Thu</h5>
-            </div>
-        </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[8].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[8].ir}}</h6>
-                <p class="card-text">{{schedule[8].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[8].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <a href="#" class="card-link">説明を見る</a>
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[9].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[9].ir}}</h6>
-                <p class="card-text">{{schedule[9].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[9].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <a href="#" class="card-link">説明を見る</a>
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[10].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[10].ir}}</h6>
-                <p class="card-text">{{schedule[10].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[10].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <a href="#" class="card-link">説明を見る</a>
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
-    </div> -->
     <div class="week text-center">
         <div class="card" style="width: 14rem;">
             <div class="card-body">
                 <h5 class="card-title">Fri</h5>
             </div>
         </div>
+        {% for s in schedule %}
+        {% if s.week == "金曜日" %}
         <div class="card" style="width: 14rem;">
             <div class="card-body">
-                <h5 class="card-title">{{schedule[11].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[11].ir}}</h6>
-                <p class="card-text">{{schedule[11].time}}</p>
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
                 <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[1].program}}>
+                    <input type="hidden" name="program" value="{{s.program}}">
                     <input type="submit" value="説明を見る">
                 </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
                 <a href="#" class="card-link">参加する</a>
             </div>
         </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[12].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[12].ir}}</h6>
-                <p class="card-text">{{schedule[12].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[12].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
-
+        {% endif %}
+        {% endfor %}
     </div>
     <div class="week text-center">
         <div class="card" style="width: 14rem;">
@@ -219,33 +108,22 @@
                 <h5 class="card-title">Sat</h5>
             </div>
         </div>
+        {% for s in schedule %}
+        {% if s.week == "土曜日" %}
         <div class="card" style="width: 14rem;">
             <div class="card-body">
-                <h5 class="card-title">{{schedule[13].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[13].ir}}</h6>
-                <p class="card-text">{{schedule[13].time}}</p>
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
                 <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[13].program}}>
+                    <input type="hidden" name="program" value="{{s.program}}">
                     <input type="submit" value="説明を見る">
                 </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
                 <a href="#" class="card-link">参加する</a>
             </div>
         </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[14].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[14].ir}}</h6>
-                <p class="card-text">{{schedule[14].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[14].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
-
+        {% endif %}
+        {% endfor %}
     </div>
     <div class="week text-center">
         <div class="card" style="width: 14rem;">
@@ -253,72 +131,25 @@
                 <h5 class="card-title">Sun</h5>
             </div>
         </div>
+        {% for s in schedule %}
+        {% if s.week == "日曜日" %}
         <div class="card" style="width: 14rem;">
             <div class="card-body">
-                <h5 class="card-title">{{schedule[15].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[15].ir}}</h6>
-                <p class="card-text">{{schedule[15].time}}</p>
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
                 <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[15].program}}>
+                    <input type="hidden" name="program" value="{{s.program}}">
                     <input type="submit" value="説明を見る">
                 </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
                 <a href="#" class="card-link">参加する</a>
             </div>
         </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[16].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[16].ir}}</h6>
-                <p class="card-text">{{schedule[16].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[16].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
-        <div class="card" style="width: 14rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{schedule[17].program}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">担当{{schedule[17].ir}}</h6>
-                <p class="card-text">{{schedule[17].time}}</p>
-                <form action="/user/member_class" method="post">
-                    <input type="hidden" name="program" value={{schedule[17].program}}>
-                    <input type="submit" value="説明を見る">
-                </form>
-                <!-- <a href="#" class="card-link">説明を見る</a> -->
-                <a href="#" class="card-link">参加する</a>
-            </div>
-        </div>
-
+        {% endif %}
+        {% endfor %}
     </div>
 </div>
 
-<!-- <table class="table table-bordered">
-    <label for="year">年</label>
-    <input type="number" name="year" id="year">
-
-    <tr>
-        <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
-    </tr>
-    <tr>
-        <td><a href="">ヨガ</a></td><td>ピラティス</td><td>ホットYOGA45ek</td><td>ルーシーダットン</td><td>フラダンス</td><td><a href="">ヨガ</a></td><td><a href="">ヨガ</a></td>
-    </tr>
-    <tr>
-        <td><a href="">ヨガ</a></td><td>ピラティス</td><td>ホットYOGA45ek</td><td>ルーシーダットン</td><td>フラダンス</td><td><a href="">ヨガ</a></td><td><a href="">ヨガ</a></td>
-    </tr>
-    <tr>
-        <td><a href="">ヨガ</a></td><td>ピラティス</td><td>ホットYOGA45ek</td><td>ルーシーダットン</td><td>フラダンス</td><td><a href="">ヨガ</a></td><td><a href="">ヨガ</a></td>
-    </tr>
-    <tr>
-        <td><a href="">ヨガ</a></td><td>ピラティス</td><td>ホットYOGA45ek</td><td>ルーシーダットン</td><td>フラダンス</td><td><a href="">ヨガ</a></td><td><a href="">ヨガ</a></td>
-    </tr>
-    <tr>
-        <td><a href="">ヨガ</a></td><td>ピラティス</td><td>ホットYOGA45ek</td><td>ルーシーダットン</td><td>フラダンス</td><td><a href="">ヨガ</a></td><td><a href="">ヨガ</a></td>
-    </tr>
-</table> -->
 <form action="/user/member_index" method="post">
     <input type="submit" value="戻る">
 </form>
