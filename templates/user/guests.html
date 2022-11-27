@@ -1,11 +1,161 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>スタジオ選択</h1>
+<!-- <h1>スタジオ選択</h1>
 <form action="/user/guests_class">
     <p>スタジオ一覧</p>
     <input type="submit" value="選択">
-</form>
+</form> -->
+<h1>スタジオ選択</h1>
+<!-- <form action="/user/member_class" method="post">
+    <p>スタジオ一覧</p>
+    <input type="submit" value="選択">
+</form> -->
+
+<div>
+    <div class="week text-center d-flex justify-content-center">
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">Mon</h5>
+            </div>
+        
+        {% for s in schedule %}
+        {% if s.week == "月曜日" %}
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
+                <form action="/user/gusts_class" method="post">
+                    <input class="btn btn-primary" type="hidden" name="program" value="{{s.program}}">
+                    <!-- schedule[0]のヨガの行を取ってきている -->
+                    <input type="submit" value="説明を見る">
+                </form>
+                <!-- <a href="/user/member_class" class="card-link">説明を見る</a> -->
+                <a href="#" class="card-link">参加する</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="week text-center">
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">Tue</h5>
+            </div>
+        </div>
+        {% for s in schedule %}
+        {% if s.week == "火曜日" %}
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
+                <form action="/user/gusts_class" method="post">
+                    <input type="hidden" name="program" value="{{s.program}}">
+                    <input type="submit" value="説明を見る">
+                </form>
+                <a href="#" class="card-link">参加する</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="week text-center">
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">Wed</h5>
+            </div>
+        </div> 
+        {% for s in schedule %}
+        {% if s.week == "水曜日" %}
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
+                <form action="/user/gusts_class" method="post">
+                    <input type="hidden" name="program" value="{{s.program}}">
+                    <input type="submit" value="説明を見る">
+                </form>
+                <a href="#" class="card-link">参加する</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="week text-center">
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">Fri</h5>
+            </div>
+        </div>
+        {% for s in schedule %}
+        {% if s.week == "金曜日" %}
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
+                <form action="/user/gusts_class" method="post">
+                    <input type="hidden" name="program" value="{{s.program}}">
+                    <input type="submit" value="説明を見る">
+                </form>
+                <a href="#" class="card-link">参加する</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="week text-center">
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">Sat</h5>
+            </div>
+        </div>
+        {% for s in schedule %}
+        {% if s.week == "土曜日" %}
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
+                <form action="/user/gusts_class" method="post">
+                    <input type="hidden" name="program" value="{{s.program}}">
+                    <input type="submit" value="説明を見る">
+                </form>
+                <a href="#" class="card-link">参加する</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="week text-center">
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">Sun</h5>
+            </div>
+        </div>
+        {% for s in schedule %}
+        {% if s.week == "日曜日" %}
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
+                <form action="/user/gusts_class" method="post">
+                    <input type="hidden" name="program" value="{{s.program}}">
+                    <input type="submit" value="説明を見る">
+                </form>
+                <a href="#" class="card-link">参加する</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
 <form action="/user/user">
     <input type="submit" value="戻る">
 </form>
