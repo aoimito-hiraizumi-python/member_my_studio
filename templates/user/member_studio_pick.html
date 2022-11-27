@@ -13,6 +13,25 @@
                 <h5 class="card-title">Mon</h5>
             </div>
         </div>
+        {% for s in schedule %}
+        {% if s.week == "月曜日" %}
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{s.program}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">担当{{s.ir}}</h6>
+                <p class="card-text">{{s.time}}</p>
+                <form action="/user/member_class" method="post">
+                    <input type="hidden" name="program" value="{{s.program}}">
+                    <!-- schedule[0]のヨガの行を取ってきている -->
+                    <input type="submit" value="説明を見る">
+                </form>
+                <!-- <a href="/user/member_class" class="card-link">説明を見る</a> -->
+                <a href="#" class="card-link">参加する</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <h1>Not For</h1>
         <div class="card" style="width: 14rem;">
             <div class="card-body">
                 <h5 class="card-title">{{schedule[0].program}}</h5>
