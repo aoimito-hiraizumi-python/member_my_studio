@@ -6,14 +6,14 @@ from flask import render_template
 from flask import redirect
 from flask import request
 
-from flask_login import LoginManager
-from flask_login import login_required
-from flask_login import login_user
-from flask_login import logout_user
+from flask_login_multi import login_required
+from flask_login_multi import login_user
+from flask_login_multi import logout_user
 
 from database import User
 from database import Schedule
 from database import Program
+
 
 from PIL import Image
 
@@ -153,9 +153,36 @@ def member_logout():
 
 @user_bp.route("/guests")
 def guests():
-    return render_template("/user/guests.html")
+    schedule = Schedule.select()
+    # print(schedule)
+    return render_template("/user/guests.html", schedule=schedule)
+    # return render_template("/user/guests.html")
 
 
-@user_bp.route("/guests_class")
+@user_bp.route("/guests_class", methods=["POST"])
 def guests_class():
-    return render_template("/user/guests_class.html")
+    schedule = Schedule.select()
+    program = request.form["program"]
+    # print("program")
+    # print(program)
+    detail = Program.get(name=program)
+    # print("program")
+    # print(program)
+    # print(detail)
+    name = detail.name
+    content = detail.content
+    image = detail.images
+    img = Image.open(image)
+    img_resize = img.resize((256, 256))
+    strength = detail.strength
+    difficulty = detail.difficulty
+    return render_template(
+        "/user/guests_class",
+        schedule=schedule,
+        name=name,
+        content=content,
+        strength=strength,
+        difficulty=difficulty,
+        img_resize=image,
+    )
+    # return render_template("/user/guests_class.html")

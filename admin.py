@@ -6,21 +6,21 @@ from flask import render_template
 from flask import redirect
 from flask import request
 
-from flask_login import LoginManager
-from flask_login import login_required
-from flask_login import login_user
-from flask_login import logout_user
+from flask_login_multi import login_required
+from flask_login_multi import login_user
+from flask_login_multi import logout_user
 
 from database import Admin
 from database import Ir_register
 from database import Program
 from database import Schedule
 
-from werkzeug.security import generate_password_hash # 暗号化
-from werkzeug.security import check_password_hash    # パスワードに戻す
+from werkzeug.security import generate_password_hash  # 暗号化
+from werkzeug.security import check_password_hash  # パスワードに戻す
 
 # from database import Admin
-admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
+admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
+
 
 @admin_bp.route("/admin")
 def admin():
@@ -31,6 +31,7 @@ def admin():
 def admin_signup():
     return render_template("admin/admin_signup.html")
 
+
 @admin_bp.route("/admin_signup", methods=["POST"])
 def admin_register():
     name = request.form["name"]
@@ -40,13 +41,15 @@ def admin_register():
     Admin.create(
         name=name,
         password=generate_password_hash(password, method="sha256"),
-        email=email
+        email=email,
     )
     return redirect("/admin/admin_login")
+
 
 @admin_bp.route("/admin_login")
 def admin_login():
     return render_template("admin/admin_login.html")
+
 
 @admin_bp.route("/admin_login", methods=["POST"])
 def admin_login_post():
@@ -58,7 +61,9 @@ def admin_login_post():
         return redirect("admin/admin_index")
     return redirect("/admin/admin_login")
 
+
 @admin_bp.route("/admin_index", methods=["GET", "POST"])
+@login_required
 def admin_index():
     return render_template("admin/admin_index.html")
 
@@ -66,6 +71,7 @@ def admin_index():
 @admin_bp.route("/admin_program")
 def admin_program():
     return render_template("admin/admin_program.html")
+
 
 @admin_bp.route("/admin_program", methods=["POST"])
 def admin_program_register():
@@ -81,15 +87,17 @@ def admin_program_register():
         strength=strength,
         difficulty=difficulty,
         minutes=minutes,
-        capacity=capacity
+        capacity=capacity,
     )
     return redirect("/admin/admin_program")
+
 
 @admin_bp.route("/admin_schedule")
 def admin_schedule():
     programs = Program.select()
     irs = Ir_register.select()
     return render_template("admin/admin_schedule.html", programs=programs, irs=irs)
+
 
 @admin_bp.route("/admin_schedule", methods=["POST"])
 def admin_schedule_register():
@@ -105,18 +113,21 @@ def admin_schedule_register():
         week=week,
         time=time,
         program=program,
-        ir=ir
+        ir=ir,
     )
     return redirect("/admin/admin_schedule")
+
 
 @admin_bp.route("/admin_class")
 def admin_class():
     return render_template("admin/admin_class.html")
-    
+
+
 @admin_bp.route("/admin_ir")
 def admin_ir():
     programs = Program.select()
     return render_template("admin/admin_ir.html", programs=programs)
+
 
 @admin_bp.route("/admin_ir", methods=["POST"])
 def admin_ir_register():
@@ -136,34 +147,41 @@ def admin_ir_register():
         fee2=fee2,
         program3=program3,
         fee3=fee3,
-        email=email
+        email=email,
     )
     return redirect("/admin/admin_ir")
+
 
 @admin_bp.route("/admin_data")
 def admin_data():
     return render_template("admin/admin_data.html")
-    
+
+
 @admin_bp.route("/admin_mypage")
 def admin_mypage():
     return render_template("admin/admin_mypage.html")
+
 
 @admin_bp.route("/admin_logout", methods=["POST"])
 def admin_logout():
     logout_user()
     return redirect("/admin/admin")
 
+
 @admin_bp.route("/admin_member")
 def admin_member():
     return render_template("admin/admin_member.html")
+
 
 @admin_bp.route("/admin_reserved")
 def admin_reserved():
     return render_template("admin/admin_reserved.html")
 
+
 @admin_bp.route("/admin_comments")
 def admin_comments():
     return render_template("admin/admin_comments.html")
+
 
 @admin_bp.route("/admin_favorites")
 def admin_favorites():
